@@ -27,8 +27,8 @@ struct PokemonRepository: PokemonRepositoryProtocol {
     }
 }
 
-struct PokemonRepositoryFactory {
-    static func makePokemonRepository(apiService: APIServiceProtocol) -> PokemonRepositoryProtocol {
+public struct PokemonRepositoryFactory {
+    public static func makePokemonRepository(apiService: APIServiceProtocol = APIFactory.makeAPIService()) -> PokemonRepositoryProtocol {
         return PokemonRepository(apiService: apiService)
     }
 }

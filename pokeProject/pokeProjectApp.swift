@@ -11,7 +11,7 @@ import SwiftUI
 struct pokeProjectApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PokemonListView(viewModel: PokemonListFactory.makePokemonListViewModel())
         }
     }
 }

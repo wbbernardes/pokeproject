@@ -24,8 +24,8 @@ class PokemonListUseCase: PokemonListUseCaseProtocol {
     }
 }
 
-public struct SpeciesListUseCaseFactory {
-    public static func makepeciesListUseCase(pokemonRepository: PokemonRepositoryProtocol) -> PokemonListUseCaseProtocol {
+public struct PokemonListUseCaseFactory {
+    public static func makePokemonListUseCase(pokemonRepository: PokemonRepositoryProtocol) -> PokemonListUseCaseProtocol {
         return PokemonListUseCase(pokemonRepository: pokemonRepository)
     }
 }

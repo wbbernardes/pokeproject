@@ -1,5 +1,5 @@
 //
-//  PagedSpeciesDTO.swift
+//  SpeciesListDTO.swift
 //  
 //
 //  Created by Wesley Brito on 27/05/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PagedSpeciesDTO: Decodable {
+struct SpeciesListDTO: Decodable {
     let count: Int
     let next: String?
     let previous: String?

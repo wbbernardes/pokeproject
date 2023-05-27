@@ -7,6 +7,12 @@
 
 import Foundation
 
+public struct APIFactory {
+    public static func makeAPIService() -> APIServiceProtocol {
+        return APIService()
+    }
+}
+
 public protocol APIServiceProtocol {
     func request<T: Decodable>(_ target: APITarget) async throws -> T
 }

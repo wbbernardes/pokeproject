@@ -8,16 +8,16 @@
 import Foundation
 
 public struct PokemonList: Equatable, Hashable {
-    public let next: String?
+    public let next: URL?
     public let pokemonSpecies: [PokemonSpecies]
     
     public init(
-        next: String?,
+        next: URL?,
         pokemonSpecies: [PokemonSpecies]
     ) {
         self.next = next
         self.pokemonSpecies = pokemonSpecies
     }
     
-    public static let empty = PokemonList(next: "", pokemonSpecies: [])
+    public static let empty = PokemonList(next: URL(string: ""), pokemonSpecies: [])
 }

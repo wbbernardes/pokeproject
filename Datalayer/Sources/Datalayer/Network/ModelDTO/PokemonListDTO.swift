@@ -11,6 +11,7 @@ import Domain
 struct PokemonListDTO: Decodable {
     let count: Int
     let next: String?
+    var url: URL?
     let previous: String?
     let results: [PokemonSpeciesDTO]
     
@@ -37,6 +38,7 @@ struct PokemonListDTO: Decodable {
         let container: KeyedDecodingContainer<CodingKeys> = try decoder.container(keyedBy: CodingKeys.self)
         self.count = try container.decodeIfPresent(Int.self, forKey: .count) ?? 0
         self.next = try container.decodeIfPresent(String.self, forKey: .next) ?? ""
+        self.url = URL(string: self.next ?? "")
         self.previous = try container.decodeIfPresent(String.self, forKey: .previous) ?? ""
         self.results = try container.decodeIfPresent([PokemonSpeciesDTO].self, forKey: .results) ?? []
     }
@@ -44,6 +46,6 @@ struct PokemonListDTO: Decodable {
 
 extension PokemonListDTO {
     public func toDomain() -> PokemonList {
-        return PokemonList(next: self.next, pokemonSpecies: self.results.map { $0.toDomain() })
+        return PokemonList(next: self.url, pokemonSpecies: self.results.map { $0.toDomain() })
     }
 }

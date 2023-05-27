@@ -9,20 +9,20 @@ import Foundation
 import Domain
 
 class PokemonListViewModel: ObservableObject {
-    @Published var pokemonList: [SpeciesList] = []
+    @Published var pokemonList: PokemonList = .empty
     @Published var selectedPokemon: Int = 0
     @Published var error: Error?
     
-    private let fetchPokemonListUseCase: PokemonListUseCaseProtocol
+    private let pokemonListUseCase: PokemonListUseCaseProtocol
     
-    init(fetchProductsUseCase: FetchProductsUseCaseProtocol) {
-        self.fetchProductsUseCase = fetchProductsUseCase
+    init(pokemonListUseCase: PokemonListUseCaseProtocol) {
+        self.pokemonListUseCase = pokemonListUseCase
     }
     
     func fetchPokemonList() async {
         Task { @MainActor in
             do {
-                self.products = try await fetchProductsUseCase.execute()
+                self.pokemonList = try await pokemonListUseCase.execute(url: pokemonList.next)
             } catch {
                 self.error = error
             }

@@ -16,6 +16,8 @@
 		B12ABB4E2A219FD0002C3684 /* pokeProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12ABB4D2A219FD0002C3684 /* pokeProjectUITestsLaunchTests.swift */; };
 		B12ABB602A228D7B002C3684 /* PokemonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12ABB5F2A228D7B002C3684 /* PokemonListView.swift */; };
 		B12ABB622A228D85002C3684 /* PokemonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12ABB612A228D85002C3684 /* PokemonListViewModel.swift */; };
+		B12ABB652A229822002C3684 /* Datalayer in Frameworks */ = {isa = PBXBuildFile; productRef = B12ABB642A229822002C3684 /* Datalayer */; };
+		B12ABB672A229822002C3684 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = B12ABB662A229822002C3684 /* Domain */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B12ABB672A229822002C3684 /* Domain in Frameworks */,
+				B12ABB652A229822002C3684 /* Datalayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +89,7 @@
 				B12ABB402A219FD0002C3684 /* pokeProjectTests */,
 				B12ABB4A2A219FD0002C3684 /* pokeProjectUITests */,
 				B12ABB2E2A219FCF002C3684 /* Products */,
+				B12ABB632A229822002C3684 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +166,13 @@
 			path = PokemonList;
 			sourceTree = "<group>";
 		};
+		B12ABB632A229822002C3684 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,6 +189,10 @@
 			dependencies = (
 			);
 			name = pokeProject;
+			packageProductDependencies = (
+				B12ABB642A229822002C3684 /* Datalayer */,
+				B12ABB662A229822002C3684 /* Domain */,
+			);
 			productName = pokeProject;
 			productReference = B12ABB2D2A219FCF002C3684 /* pokeProject.app */;
 			productType = "com.apple.product-type.application";
@@ -613,6 +629,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B12ABB642A229822002C3684 /* Datalayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Datalayer;
+		};
+		B12ABB662A229822002C3684 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B12ABB252A219FCF002C3684 /* Project object */;
 }

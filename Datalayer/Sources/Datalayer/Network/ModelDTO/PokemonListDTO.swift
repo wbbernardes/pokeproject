@@ -1,5 +1,5 @@
 //
-//  SpeciesListDTO.swift
+//  PokemonListDTO.swift
 //  
 //
 //  Created by Wesley Brito on 27/05/23.
@@ -8,7 +8,7 @@
 import Foundation
 import Domain
 
-struct SpeciesListDTO: Decodable {
+struct PokemonListDTO: Decodable {
     let count: Int
     let next: String?
     let previous: String?
@@ -42,8 +42,8 @@ struct SpeciesListDTO: Decodable {
     }
 }
 
-extension SpeciesListDTO {
-    public func toDomain() -> SpeciesList {
-        return SpeciesList(next: self.next, pokemonSpecies: self.results.map { $0.toDomain() })
+extension PokemonListDTO {
+    public func toDomain() -> PokemonList {
+        return PokemonList(next: self.next, pokemonSpecies: self.results.map { $0.toDomain() })
     }
 }

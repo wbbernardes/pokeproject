@@ -1,5 +1,5 @@
 //
-//  SpeciesList.swift
+//  PokemonList.swift
 //  
 //
 //  Created by Wesley Brito on 27/05/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SpeciesList: Equatable, Hashable {
+public struct PokemonList: Equatable, Hashable {
     public let next: String?
     public let pokemonSpecies: [PokemonSpecies]
     
@@ -19,5 +19,5 @@ public struct SpeciesList: Equatable, Hashable {
         self.pokemonSpecies = pokemonSpecies
     }
     
-    public static let empty = SpeciesList(next: "", pokemonSpecies: [])
+    public static let empty = PokemonList(next: "", pokemonSpecies: [])
 }

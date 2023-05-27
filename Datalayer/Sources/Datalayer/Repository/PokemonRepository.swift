@@ -16,8 +16,8 @@ struct PokemonRepository: PokemonRepositoryProtocol {
         self.apiService = apiService
     }
 
-    func fetchSpeciesList(url: URL?) async throws -> SpeciesList {
-        let object: SpeciesListDTO = try await apiService.request(.getSpecies(url))
+    func fetchSpeciesList(url: URL?) async throws -> PokemonList {
+        let object: PokemonListDTO = try await apiService.request(.getSpecies(url))
         return object.toDomain()
     }
 

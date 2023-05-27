@@ -6,14 +6,9 @@
 //
 
 import Foundation
+import Domain
 
-protocol PokemonRepositoryProtocol {
-    func fetchSpeciesList(url: URL?) async throws -> SpeciesListDTO
-    func fetchSpeciesDetail(id: Int) async throws -> EvolutionChainURLDTO
-    func fetchEvolutionChain(id: Int) async throws -> EvolutionChainDTO
-}
-
-class PokemonRepository: PokemonRepositoryProtocol {
+struct PokemonRepository: PokemonRepositoryProtocol {
     
     private let apiService: APIServiceProtocol
 
@@ -21,16 +16,14 @@ class PokemonRepository: PokemonRepositoryProtocol {
         self.apiService = apiService
     }
 
-    func fetchSpeciesList(url: URL?) async throws -> SpeciesListDTO {
-        return try await apiService.request(APITarget.getSpecies(url))
+    func fetchSpeciesList(url: URL?) async throws -> SpeciesList {
+        let object: SpeciesListDTO = try await apiService.request(.getSpecies(url))
+        return object.toDomain()
     }
 
-    func fetchSpeciesDetail(id: Int) async throws -> EvolutionChainURLDTO {
-        return try await apiService.request(APITarget.getSpecificSpecies(id: id))
-    }
-
-    func fetchEvolutionChain(id: Int) async throws -> EvolutionChainDTO {
-        return try await apiService.request(APITarget.getEvolutionChain(id: id))
+    func fetchPokemonDetail(id: Int) async throws -> PokemonDetail {
+        let object: EvolutionChainDTO = try await apiService.request(APITarget.getPokemonDetail(id: id))
+        return object.toDomain()
     }
 }
 

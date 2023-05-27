@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Domain
 
 struct PokemonSpeciesDTO: Decodable {
     let name: String
@@ -36,4 +37,10 @@ struct PokemonSpeciesDTO: Decodable {
     }
     
     static let empty = PokemonSpeciesDTO(name: "", url: "")
+}
+
+extension PokemonSpeciesDTO {
+    public func toDomain() -> PokemonSpecies {
+        return PokemonSpecies(id: self.id, name: self.name)
+    }
 }

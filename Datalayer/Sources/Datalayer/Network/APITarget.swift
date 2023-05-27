@@ -9,8 +9,7 @@ import Foundation
 
 public enum APITarget {
     case getSpecies(URL?)
-    case getSpecificSpecies(id: Int)
-    case getEvolutionChain(id: Int)
+    case getPokemonDetail(id: Int)
 
     var baseURL: URL {
         return URL(string: "https://pokeapi.co/api/v2")!
@@ -20,16 +19,14 @@ public enum APITarget {
         switch self {
         case .getSpecies:
             return "/pokemon-species"
-        case .getSpecificSpecies(let id):
-            return "/pokemon-species/\(id)"
-        case .getEvolutionChain(let id):
+        case .getPokemonDetail(let id):
             return "/evolution-chain/\(id)"
         }
     }
 
     var method: String {
         switch self {
-        case .getSpecies, .getSpecificSpecies, .getEvolutionChain:
+        case .getSpecies, .getPokemonDetail:
             return "GET"
         }
     }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Domain
 
 struct SpeciesListDTO: Decodable {
     let count: Int
@@ -38,5 +39,11 @@ struct SpeciesListDTO: Decodable {
         self.next = try container.decodeIfPresent(String.self, forKey: .next) ?? ""
         self.previous = try container.decodeIfPresent(String.self, forKey: .previous) ?? ""
         self.results = try container.decodeIfPresent([PokemonSpeciesDTO].self, forKey: .results) ?? []
+    }
+}
+
+extension SpeciesListDTO {
+    public func toDomain() -> SpeciesList {
+        return SpeciesList(next: self.next, pokemonSpecies: self.results.map { $0.toDomain() })
     }
 }

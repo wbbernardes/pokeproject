@@ -45,6 +45,7 @@
 		B12ABB4B2A219FD0002C3684 /* pokeProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokeProjectUITests.swift; sourceTree = "<group>"; };
 		B12ABB4D2A219FD0002C3684 /* pokeProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokeProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B12ABB5B2A21A4CC002C3684 /* Datalayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Datalayer; sourceTree = "<group>"; };
+		B12ABB5C2A21B85C002C3684 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				B12ABB5B2A21A4CC002C3684 /* Datalayer */,
+				B12ABB5C2A21B85C002C3684 /* Domain */,
 			);
 			name = Packages;
 			sourceTree = "<group>";

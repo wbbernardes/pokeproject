@@ -17,11 +17,24 @@
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:pokeProject.xcodeproj",
         "identifier" : "B12ABB3C2A219FD0002C3684",
         "name" : "pokeProjectTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Datalayer",
+        "identifier" : "DatalayerTests",
+        "name" : "DatalayerTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Domain",
+        "identifier" : "DomainTests",
+        "name" : "DomainTests"
       }
     }
   ],

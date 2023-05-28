@@ -16,7 +16,7 @@ The app uses the PokeAPI for data and implements an architecture based on MVVM w
 
 ## Architecture
 
-The app follows MVVM (Model-View-ViewModel) architecture with additional layers for better separation of concerns:
+The app follows clean architecture+MVVM (Model-View-ViewModel) with additional layers for better separation of concerns:
 
 - **View:** Contains SwiftUI views. The views observe the ViewModel and update accordingly.
 - **ViewModel:** Wraps the Model data and prepares it for use by the View. It also handles user inputs.
@@ -27,6 +27,12 @@ The app follows MVVM (Model-View-ViewModel) architecture with additional layers 
 
 #### Representation diagram:
 ![preview](./diagram.jpg)
+
+## Motivation
+Clean Architecture with MVVM gives a huge control over our application, you have the power of testability, scalability, separation of concerns, maintainability, reusability, and data binding.
+As an example, I was easily able to get a good coverage rate on this project:
+![preview](./coverage.jpg)
+
 
 ## Installation
 

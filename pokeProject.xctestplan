@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "932A4A6D-C06D-49EE-88A3-A44BF4B27DD7",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:pokeProject.xcodeproj",
+      "identifier" : "B12ABB2C2A219FCF002C3684",
+      "name" : "pokeProject"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:pokeProject.xcodeproj",
+        "identifier" : "B12ABB3C2A219FD0002C3684",
+        "name" : "pokeProjectTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:pokeProject.xcodeproj",
+        "identifier" : "B12ABB462A219FD0002C3684",
+        "name" : "pokeProjectUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

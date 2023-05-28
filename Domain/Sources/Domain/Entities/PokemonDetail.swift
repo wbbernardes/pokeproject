@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PokemonDetail: Identifiable {
+public struct PokemonDetail: Identifiable, Equatable {
     public let id: Int
     public let specie: PokemonSpecies
     public var evolutionChain: PokemonEvolutionChain

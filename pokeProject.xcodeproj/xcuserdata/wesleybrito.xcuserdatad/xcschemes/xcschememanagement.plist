@@ -7,7 +7,25 @@
 		<key>pokeProject.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>B12ABB2C2A219FCF002C3684</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B12ABB3C2A219FD0002C3684</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B12ABB462A219FD0002C3684</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

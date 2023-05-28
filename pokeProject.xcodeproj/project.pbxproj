@@ -25,6 +25,7 @@
 		B12ABB7E2A23EE33002C3684 /* PokemonListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12ABB7D2A23EE33002C3684 /* PokemonListViewModelTests.swift */; };
 		B12ABB822A23F295002C3684 /* PokemonDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12ABB812A23F295002C3684 /* PokemonDetailViewModelTests.swift */; };
 		B12ABB842A23F312002C3684 /* MockPokemonDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12ABB832A23F312002C3684 /* MockPokemonDetailUseCase.swift */; };
+		B12ABB862A23FE72002C3684 /* PokemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12ABB852A23FE72002C3684 /* PokemonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		B12ABB7F2A23F027002C3684 /* pokeProject.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = pokeProject.xctestplan; sourceTree = "<group>"; };
 		B12ABB812A23F295002C3684 /* PokemonDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewModelTests.swift; sourceTree = "<group>"; };
 		B12ABB832A23F312002C3684 /* MockPokemonDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPokemonDetailUseCase.swift; sourceTree = "<group>"; };
+		B12ABB852A23FE72002C3684 /* PokemonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 		B12ABB6E2A22B1C2002C3684 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B12ABB852A23FE72002C3684 /* PokemonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				B12ABB732A22E330002C3684 /* PokemonDetailViewModel.swift in Sources */,
 				B12ABB312A219FCF002C3684 /* pokeProjectApp.swift in Sources */,
 				B12ABB782A22EF56002C3684 /* FirstAppear.swift in Sources */,
+				B12ABB862A23FE72002C3684 /* PokemonView.swift in Sources */,
 				B12ABB712A22E328002C3684 /* PokemonDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct PokemonDetailView: View {
     @StateObject var viewModel: PokemonDetailViewModel
@@ -24,20 +23,26 @@ struct PokemonDetailView: View {
             if let pokemonDetail = viewModel.pokemonDetail {
                 VStack {
                     PokemonView(name: pokemonName, url: pokemonImage)
-                }
-                
-                if pokemonDetail.evolutionChain.evolvesTo.count > 0 {
-                    VStack {
-                        Text("Evolution")
-                            .font(.title2)
-                            .padding(.bottom, 10)
-                        
-                        ScrollView(.vertical) {
-                            ForEach(pokemonDetail.evolutionChain.evolvesTo, id: \.id) { evolutionChain in
-                                VStack {
-                                    PokemonView(name: evolutionChain.species.name, url: evolutionChain.species.imageUrl)
+                    
+                    if pokemonDetail.evolutionChain.evolvesTo.count > 0 {
+                        VStack {
+                            HStack {
+                                Text("Possibles evolution")
+                                    .font(.title)
+                                    .padding(.bottom, 10)
+                                
+                                Spacer()
+                            }
+                            
+                            ScrollView(.horizontal) {
+                                HStack {
+                                    ForEach(pokemonDetail.evolutionChain.evolvesTo, id: \.id) { evolutionChain in
+                                        PokemonView(name: evolutionChain.species.name, url: evolutionChain.species.imageUrl)
+                                    }
                                 }
                             }
+                            
+                            Spacer()
                         }
                     }
                 }
@@ -47,29 +52,12 @@ struct PokemonDetailView: View {
                 ProgressView("Loading...")
             }
         }
+        .padding(.horizontal, 16)
+        .padding(.bottom, 16)
         .onAppear {
             Task {
                 await viewModel.fetchPokemonDetail()
             }
-        }
-    }
-}
-
-struct PokemonView: View {
-    var name: String
-    var url: URL?
-    
-    var body: some View {
-        VStack {
-            Text(name)
-                .font(.largeTitle)
-                .padding(.bottom, 10)
-                
-            KFImage(url)
-                .cacheOriginalImage()
-                .diskCacheExpiration(.days(30))
-                .resizable()
-                .frame(width: 200, height: 200)
         }
     }
 }

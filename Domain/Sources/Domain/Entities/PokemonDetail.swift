@@ -19,4 +19,16 @@ public struct PokemonDetail: Identifiable, Equatable {
     }
     
     public static let empty = PokemonDetail(id: 0, specie: PokemonSpecies.empty, evolutionChain: .empty)
+    
+    public static let mock: PokemonDetail = PokemonDetail(
+        id: 1,
+        specie: PokemonSpecies(
+            id: 1,
+            name: "bulbasaur"
+        ),
+        evolutionChain: PokemonEvolutionChain(
+            species: PokemonSpecies(id: 1, name: "bulbasaur"),
+            evolvesTo: [PokemonEvolutionChain(species: PokemonSpecies(id: 2, name: "ivysaur"), evolvesTo: [])]
+        )
+    )
 }

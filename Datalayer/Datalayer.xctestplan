@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "CEB88810-7578-4362-8019-5407329EE64C",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "DatalayerTests",
+        "name" : "DatalayerTests"
+      }
+    }
+  ],
+  "version" : 1
+}

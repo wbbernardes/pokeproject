@@ -23,7 +23,9 @@ class PokemonListViewModel: ObservableObject {
     func fetchPokemonList() async {
         Task { @MainActor in
             do {
-                self.pokemonList = try await pokemonListUseCase.execute(url: pokemonList.next)
+                let newValue: PokemonList = try await pokemonListUseCase.execute(url: pokemonList.next)
+                self.pokemonList.next = newValue.next
+                self.pokemonList.pokemonSpecies.append(contentsOf: newValue.pokemonSpecies)
             } catch {
                 self.error = error
             }

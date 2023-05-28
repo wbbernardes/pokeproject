@@ -8,8 +8,9 @@
 import Foundation
 
 public enum APITarget {
-    case getSpecies(URL?)
-    case getPokemonDetail(id: Int)
+    case getSpeciesList(URL?)
+    case getPokemonSpecie(id: Int)
+    case getPokemonDetail(URL)
 
     var baseURL: URL {
         return URL(string: "https://pokeapi.co/api/v2")!
@@ -17,16 +18,18 @@ public enum APITarget {
 
     var path: String {
         switch self {
-        case .getSpecies:
+        case .getSpeciesList:
             return "/pokemon-species"
-        case .getPokemonDetail(let id):
-            return "/evolution-chain/\(id)"
+        case .getPokemonSpecie(let id):
+            return "/pokemon-species/\(id)"
+        case .getPokemonDetail:
+            return ""
         }
     }
 
     var method: String {
         switch self {
-        case .getSpecies, .getPokemonDetail:
+        case .getSpeciesList, .getPokemonSpecie, .getPokemonDetail:
             return "GET"
         }
     }
@@ -41,8 +44,10 @@ public enum APITarget {
 
     var url: URL {
         switch self {
-        case .getSpecies(let url):
+        case .getSpeciesList(let url):
             return url ?? baseURL.appendingPathComponent(path)
+        case .getPokemonDetail(let url):
+            return url
         default:
             return baseURL.appendingPathComponent(path)
         }

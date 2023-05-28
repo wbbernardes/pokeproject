@@ -25,7 +25,7 @@ struct PokemonListView: View {
                 } else {
                     List {
                         ForEach(viewModel.pokemonList.pokemonSpecies) { pokemon in
-                            NavigationLink(destination: PokemonDetailView(viewModel: PokemonDetailFactory.makePokemonDetailViewModel(pokemonId: pokemon.id)) ) {
+                            NavigationLink(destination: PokemonDetailView(viewModel: PokemonDetailFactory.makePokemonDetailViewModel(pokemonId: pokemon.id), pokemonName: pokemon.name, pokemonImage: pokemon.imageUrl) ) {
                                 HStack {
                                     HStack(spacing: 10) {
                                         KFImage(pokemon.imageUrl)
@@ -50,16 +50,27 @@ struct PokemonListView: View {
                                         .foregroundColor(.gray)
                                 }
                             }
-                        }
-                    }
-                    .navigationTitle("Pokemon")
-                    .onFirstAppear {
-                        Task {
-                            await viewModel.fetchPokemonList()
+                            .onAppear {
+                                if pokemon == viewModel.pokemonList.pokemonSpecies.last {
+                                    loadMorePokemons()
+                                }
+                            }
                         }
                     }
                 }
             }
+            .navigationTitle("Pokemon")
+            .onFirstAppear {
+                Task {
+                    await viewModel.fetchPokemonList()
+                }
+            }
+        }
+    }
+    
+    private func loadMorePokemons() {
+        Task {
+            await viewModel.fetchPokemonList()
         }
     }
 }

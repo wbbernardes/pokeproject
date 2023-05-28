@@ -17,12 +17,19 @@ struct PokemonRepository: PokemonRepositoryProtocol {
     }
 
     func fetchSpeciesList(url: URL?) async throws -> PokemonList {
-        let object: PokemonListDTO = try await apiService.request(.getSpecies(url))
+        let object: PokemonListDTO = try await apiService.request(.getSpeciesList(url))
         return object.toDomain()
     }
-
+    
     func fetchPokemonDetail(id: Int) async throws -> PokemonDetail {
-        let object: EvolutionChainDTO = try await apiService.request(APITarget.getPokemonDetail(id: id))
+        let evolutionChain: EvolutionChainURLDTO = try await apiService.request(.getPokemonSpecie(id: id))
+        
+        guard let url = URL(string: evolutionChain.evolutionChainData.url) else {
+            throw APIError.unknown
+        }
+        
+        let object: EvolutionChainDTO = try await apiService.request(APITarget.getPokemonDetail(url))
+        
         return object.toDomain()
     }
 }

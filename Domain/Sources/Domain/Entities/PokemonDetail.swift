@@ -7,16 +7,16 @@
 
 import Foundation
 
-public struct PokemonDetail: Equatable, Hashable, Identifiable {
+public struct PokemonDetail: Identifiable {
     public let id: Int
     public let specie: PokemonSpecies
-    public let evolutionChain: [PokemonSpecies]
+    public var evolutionChain: PokemonEvolutionChain
     
-    public init(id: Int, specie: PokemonSpecies, evolutionChain: [PokemonSpecies]) {
+    public init(id: Int, specie: PokemonSpecies, evolutionChain: PokemonEvolutionChain) {
         self.id = id
         self.specie = specie
         self.evolutionChain = evolutionChain
     }
     
-    public static let empty = PokemonDetail(id: 0, specie: PokemonSpecies.empty, evolutionChain: [])
+    public static let empty = PokemonDetail(id: 0, specie: PokemonSpecies.empty, evolutionChain: .empty)
 }

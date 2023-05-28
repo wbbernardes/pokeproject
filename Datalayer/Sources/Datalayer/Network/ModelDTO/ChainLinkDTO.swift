@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Domain
 
 struct ChainLinkDTO: Decodable {
     let species: PokemonSpeciesDTO
@@ -31,4 +32,13 @@ struct ChainLinkDTO: Decodable {
     }
     
     static let empty = ChainLinkDTO(species: PokemonSpeciesDTO.empty, evolvesTo: [])
+}
+
+extension ChainLinkDTO {
+    func toDomain() -> PokemonEvolutionChain {
+        return PokemonEvolutionChain(
+            species: species.toDomain(),
+            evolvesTo: evolvesTo.map { $0.toDomain() }
+        )
+    }
 }

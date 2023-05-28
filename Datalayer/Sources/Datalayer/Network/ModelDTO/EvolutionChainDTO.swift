@@ -39,7 +39,7 @@ extension EvolutionChainDTO {
         return PokemonDetail(
             id: self.id,
             specie: self.chain.species.toDomain(),
-            evolutionChain: self.chain.evolvesTo.map { $0.species.toDomain() }
+            evolutionChain: self.chain.toDomain()
         )
     }
 }

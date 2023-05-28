@@ -8,8 +8,8 @@
 import Foundation
 
 public struct PokemonList: Equatable, Hashable {
-    public let next: URL?
-    public let pokemonSpecies: [PokemonSpecies]
+    public var next: URL?
+    public var pokemonSpecies: [PokemonSpecies]
     
     public init(
         next: URL?,

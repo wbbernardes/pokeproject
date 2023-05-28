@@ -26,7 +26,7 @@ The app follows MVVM (Model-View-ViewModel) architecture with additional layers 
 - **API Layer:** Handles API calls and responses.
 
 #### Representation diagram:
-![preview](./diagram.pdf)
+![preview](./diagram.jpg)
 
 ## Installation
 

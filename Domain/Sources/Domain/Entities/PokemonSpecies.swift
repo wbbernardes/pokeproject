@@ -10,8 +10,8 @@ import Foundation
 public struct PokemonSpecies: Equatable, Hashable, Identifiable {
     public let id: Int
     public let name: String
-    public var imageUrl: String {
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(id).png"
+    public var imageUrl: URL? {
+        URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(id).png")
     }
     
     public init(id: Int, name: String) {

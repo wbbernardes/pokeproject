@@ -19,6 +19,7 @@
 		B12ABB652A229822002C3684 /* Datalayer in Frameworks */ = {isa = PBXBuildFile; productRef = B12ABB642A229822002C3684 /* Datalayer */; };
 		B12ABB672A229822002C3684 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = B12ABB662A229822002C3684 /* Domain */; };
 		B12ABB6A2A22A59C002C3684 /* PokemonListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12ABB692A22A59C002C3684 /* PokemonListFactory.swift */; };
+		B12ABB6D2A22A8CC002C3684 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B12ABB6C2A22A8CC002C3684 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B12ABB6D2A22A8CC002C3684 /* Kingfisher in Frameworks */,
 				B12ABB672A229822002C3684 /* Domain in Frameworks */,
 				B12ABB652A229822002C3684 /* Datalayer in Frameworks */,
 			);
@@ -108,6 +110,7 @@
 		B12ABB2F2A219FCF002C3684 /* pokeProject */ = {
 			isa = PBXGroup;
 			children = (
+				B12ABB6E2A22B1C2002C3684 /* Components */,
 				B12ABB682A22A578002C3684 /* Application */,
 				B12ABB5D2A228D1E002C3684 /* Presentation */,
 				B12ABB302A219FCF002C3684 /* pokeProjectApp.swift */,
@@ -184,6 +187,13 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		B12ABB6E2A22B1C2002C3684 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -203,6 +213,7 @@
 			packageProductDependencies = (
 				B12ABB642A229822002C3684 /* Datalayer */,
 				B12ABB662A229822002C3684 /* Domain */,
+				B12ABB6C2A22A8CC002C3684 /* Kingfisher */,
 			);
 			productName = pokeProject;
 			productReference = B12ABB2D2A219FCF002C3684 /* pokeProject.app */;
@@ -276,6 +287,9 @@
 				Base,
 			);
 			mainGroup = B12ABB242A219FCF002C3684;
+			packageReferences = (
+				B12ABB6B2A22A8CC002C3684 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = B12ABB2E2A219FCF002C3684 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -642,6 +656,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		B12ABB6B2A22A8CC002C3684 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		B12ABB642A229822002C3684 /* Datalayer */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -650,6 +675,11 @@
 		B12ABB662A229822002C3684 /* Domain */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Domain;
+		};
+		B12ABB6C2A22A8CC002C3684 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B12ABB6B2A22A8CC002C3684 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

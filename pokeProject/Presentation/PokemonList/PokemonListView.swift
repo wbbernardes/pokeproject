@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct PokemonListView: View {
     @StateObject var viewModel: PokemonListViewModel
@@ -23,10 +24,25 @@ struct PokemonListView: View {
                     List {
                         ForEach(viewModel.pokemonList.pokemonSpecies) { pokemon in
                             HStack {
-                                Text(pokemon.name)
-                                    .font(.headline)
-                                    .lineLimit(1)
+                                HStack(spacing: 10) {
+                                    KFImage(pokemon.imageUrl)
+                                        .cacheOriginalImage()
+                                        .diskCacheExpiration(.days(30))
+                                        .resizable()
+                                        .frame(width: 32, height: 32)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 4)
+                                                .stroke(.gray, lineWidth: 1)
+                                        )
+                                    
+                                    Text(pokemon.name)
+                                        .font(.headline)
+                                        .foregroundColor(.black)
+                                        .lineLimit(1)
+                                }
+                                
                                 Spacer()
+                                
                                 Text("#\(pokemon.id)")
                                     .foregroundColor(.gray)
                             }

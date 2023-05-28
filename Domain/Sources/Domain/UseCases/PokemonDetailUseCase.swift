@@ -25,7 +25,7 @@ class PokemonDetailUseCase: PokemonDetailUseCaseProtocol {
 }
 
 public struct PokemonDetailUseCaseFactory {
-    public static func makepeciesListUseCase(pokemonRepository: PokemonRepositoryProtocol) -> PokemonDetailUseCaseProtocol {
+    public static func makePokemonDetailUseCase(pokemonRepository: PokemonRepositoryProtocol) -> PokemonDetailUseCaseProtocol {
         return PokemonDetailUseCase(pokemonRepository: pokemonRepository)
     }
 }

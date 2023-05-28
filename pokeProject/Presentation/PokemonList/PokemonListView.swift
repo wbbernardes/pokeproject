@@ -20,42 +20,43 @@ struct PokemonListView: View {
             VStack {
                 if let error = viewModel.error {
                     Text(error.localizedDescription)
+                        .font(.headline)
+                        .foregroundColor(.red)
                 } else {
                     List {
                         ForEach(viewModel.pokemonList.pokemonSpecies) { pokemon in
-                            HStack {
-                                HStack(spacing: 10) {
-                                    KFImage(pokemon.imageUrl)
-                                        .cacheOriginalImage()
-                                        .diskCacheExpiration(.days(30))
-                                        .resizable()
-                                        .frame(width: 32, height: 32)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 4)
-                                                .stroke(.gray, lineWidth: 1)
-                                        )
+                            NavigationLink(destination: PokemonDetailView(viewModel: PokemonDetailFactory.makePokemonDetailViewModel(pokemonId: pokemon.id)) ) {
+                                HStack {
+                                    HStack(spacing: 10) {
+                                        KFImage(pokemon.imageUrl)
+                                            .cacheOriginalImage()
+                                            .diskCacheExpiration(.days(30))
+                                            .resizable()
+                                            .frame(width: 32, height: 32)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 4)
+                                                    .stroke(.gray, lineWidth: 1)
+                                            )
+                                        
+                                        Text(pokemon.name)
+                                            .font(.headline)
+                                            .foregroundColor(.black)
+                                            .lineLimit(1)
+                                    }
                                     
-                                    Text(pokemon.name)
-                                        .font(.headline)
-                                        .foregroundColor(.black)
-                                        .lineLimit(1)
+                                    Spacer()
+                                    
+                                    Text("#\(pokemon.id)")
+                                        .foregroundColor(.gray)
                                 }
-                                
-                                Spacer()
-                                
-                                Text("#\(pokemon.id)")
-                                    .foregroundColor(.gray)
                             }
                         }
                     }
-                    .navigationTitle("Pokémon")
-                    .onAppear {
+                    .navigationTitle("Pokemon")
+                    .onFirstAppear {
                         Task {
                             await viewModel.fetchPokemonList()
                         }
-                    }
-                    .refreshable {
-                        await viewModel.fetchPokemonList()
                     }
                 }
             }

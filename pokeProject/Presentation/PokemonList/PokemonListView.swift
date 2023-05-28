@@ -24,7 +24,7 @@ struct PokemonListView: View {
                         .foregroundColor(.red)
                 } else {
                     List {
-                        ForEach(viewModel.pokemonList.pokemonSpecies) { pokemon in
+                        ForEach(viewModel.filteredPokemon) { pokemon in
                             NavigationLink(destination: PokemonDetailView(viewModel: PokemonDetailFactory.makePokemonDetailViewModel(pokemonId: pokemon.id), pokemonName: pokemon.name, pokemonImage: pokemon.imageUrl) ) {
                                 HStack {
                                     HStack(spacing: 10) {
@@ -51,12 +51,13 @@ struct PokemonListView: View {
                                 }
                             }
                             .onAppear {
-                                if pokemon == viewModel.pokemonList.pokemonSpecies.last {
+                                if pokemon == viewModel.pokemonList.pokemonSpecies.last && viewModel.pokemonList.next != nil {
                                     loadMorePokemons()
                                 }
                             }
                         }
                     }
+                    .searchable(text: $viewModel.searchText)
                 }
             }
             .navigationTitle("Pokemon")

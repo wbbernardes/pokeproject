@@ -13,6 +13,7 @@ class PokemonListViewModel: ObservableObject {
     @Published var pokemonList: PokemonList = .empty
     @Published var selectedPokemon: Int = 0
     @Published var error: Error?
+    @Published var searchText = ""
     
     private let pokemonListUseCase: PokemonListUseCaseProtocol
     
@@ -29,6 +30,16 @@ class PokemonListViewModel: ObservableObject {
             } catch {
                 self.error = error
             }
+        }
+    }
+}
+
+extension PokemonListViewModel {
+    var filteredPokemon: [PokemonSpecies] {
+        if searchText.isEmpty {
+            return pokemonList.pokemonSpecies
+        } else {
+            return pokemonList.pokemonSpecies.filter { $0.name.lowercased().contains(searchText.lowercased()) }
         }
     }
 }

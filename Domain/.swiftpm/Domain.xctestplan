@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "0D82B5CB-60B5-4CC2-86CE-E80C82CB9D0F",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "DomainTests",
+        "name" : "DomainTests"
+      }
+    }
+  ],
+  "version" : 1
+}

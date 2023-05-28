@@ -23,14 +23,6 @@
         "identifier" : "B12ABB3C2A219FD0002C3684",
         "name" : "pokeProjectTests"
       }
-    },
-    {
-      "parallelizable" : true,
-      "target" : {
-        "containerPath" : "container:pokeProject.xcodeproj",
-        "identifier" : "B12ABB462A219FD0002C3684",
-        "name" : "pokeProjectUITests"
-      }
     }
   ],
   "version" : 1
